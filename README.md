@@ -1,6 +1,15 @@
 # FounderWish
 
-A Swift Package Manager library for collecting and managing user feedback in iOS apps.
+A Swift Package Manager library for collecting and managing user feedback in iOS apps. Easily integrate feedback forms, public feedback boards, and upvoting functionality into your SwiftUI applications.
+
+## Features
+
+- 📝 **Feedback Forms** - Beautiful SwiftUI forms for collecting feature requests and bug reports
+- 💬 **Public Feedback Board** - Display and manage public feedback items with modern card layouts
+- 👍 **Upvoting System** - Let users vote on feedback items
+- 🎨 **Modern UI** - Clean, modern SwiftUI components that match iOS design guidelines
+- 🔒 **Privacy Focused** - User data handling with customizable metadata
+- 📱 **Cross-Platform** - Supports iOS 15.0+ and macOS 12.0+
 
 ## Installation
 
@@ -190,5 +199,5 @@ struct ContentView: View {
 
 ## License
 
-[Add your license here]
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
