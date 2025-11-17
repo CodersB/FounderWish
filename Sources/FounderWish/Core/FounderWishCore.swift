@@ -73,10 +73,22 @@ actor FounderWishCore {
             throw FounderWishError.server(msg)
         }
 
-        struct Info: Decodable { let slug: String }
+        // Try to decode with slug field, fallback to public_id if slug doesn't exist
+        struct Info: Decodable {
+            let slug: String?
+            let public_id: String?
+            
+            var identifier: String {
+                slug ?? public_id ?? ""
+            }
+        }
         let info = try JSONDecoder().decode(Info.self, from: data)
-        try updateCachedSlug(info.slug)
-        return info.slug
+        let identifier = info.identifier
+        guard !identifier.isEmpty else {
+            throw FounderWishError.server("API did not return a valid slug or public_id")
+        }
+        try updateCachedSlug(identifier)
+        return identifier
     }
 }
 
