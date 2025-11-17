@@ -257,26 +257,46 @@ extension FounderWish {
                 
                 Spacer()
                 
-                Button {
-                    onVote(item.id)
-                } label: {
+                if alreadyVoted {
                     VStack(spacing: 4) {
-                        if isVoting {
-                            ProgressView()
-                                .controlSize(.small)
-                        } else {
-                            Image(systemName: "arrow.up")
-                                .font(.headline)
-                        }
+                        Text("Voted")
+                            .font(.caption)
+                            .padding(8)
+                            .multilineTextAlignment(.center)
+                            .foregroundStyle(.secondary)
+                            .background(.thinMaterial, in: .capsule)
+                        
+                        Image(systemName: "arrow.up")
+                            .font(.headline)
+                            .foregroundStyle(.secondary)
                         
                         Text("\(item.votes ?? 0)")
                             .font(.subheadline)
+                            .foregroundStyle(.secondary)
                     }
-                    .frame(width: 50)
+                    .frame(width: 60)
+                } else {
+                    Button {
+                        onVote(item.id)
+                    } label: {
+                        VStack(spacing: 4) {
+                            if isVoting {
+                                ProgressView()
+                                    .controlSize(.small)
+                            } else {
+                                Image(systemName: "arrow.up")
+                                    .font(.headline)
+                            }
+                            
+                            Text("\(item.votes ?? 0)")
+                                .font(.subheadline)
+                        }
+                        .frame(width: 60)
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.accentColor)
+                    .disabled(isVoting)
                 }
-                .buttonStyle(.borderedProminent)
-                .tint(alreadyVoted ? .gray : .accentColor)
-                .disabled(isVoting || alreadyVoted)
             }
             .padding()
             .background(
