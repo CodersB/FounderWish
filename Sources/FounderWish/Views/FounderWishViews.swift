@@ -121,42 +121,17 @@ extension FounderWish {
                 }
 
                 ForEach(items, id: \.id) { item in
-                    HStack(alignment: .top) {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text(item.title).font(.headline)
-                            if let d = item.description, !d.isEmpty {
-                                Text(d)
-                                    .font(.subheadline)
-                                    .foregroundStyle(.secondary)
-                            }
-                            Text("votes: \(item.votes ?? 0) · status: \(item.status)")
-                                .font(.caption)
-                                .foregroundStyle(.secondary)
+                    FeedbackRowView(
+                        item: item,
+                        isVoting: votingIds.contains(item.id),
+                        alreadyVoted: votedIds.contains(item.id),
+                        onVote: { id in
+                            Task { await upvote(id) }
                         }
-                        Spacer()
-
-                        let isVoting = votingIds.contains(item.id)
-                        let alreadyVoted = votedIds.contains(item.id)
-
-                        Button {
-                            Task { await upvote(item.id) }
-                        } label: {
-                            if isVoting {
-                                ProgressView().controlSize(.mini)
-                            } else {
-                                Text("▲ \(item.votes ?? 0)")
-                                    .font(.caption)
-                                    .padding(6)
-                            }
-                        }
-                        .buttonStyle(.bordered)
-                        .disabled(isVoting || alreadyVoted)
-                        .opacity(alreadyVoted ? 0.5 : 1.0)
-                        .animation(.default, value: isVoting)
-                    }
-                    .padding(.vertical, 4)
+                    )
                 }
             }
+            .listStyle(.plain)
             .task { await load() }
             .refreshable { await load() }
             .navigationTitle("Ideas")
@@ -164,6 +139,7 @@ extension FounderWish {
 
         // MARK: - Data
 
+        @MainActor
         private func load() async {
             err = nil
             do {
@@ -175,34 +151,46 @@ extension FounderWish {
 
         // MARK: - Upvote (server-synced)
 
+        @MainActor
         private func upvote(_ id: String) async {
             guard !votedIds.contains(id), !votingIds.contains(id) else { return }
             err = nil
+            
+            // Update voting state
             votingIds.insert(id)
 
-            // Optimistic: bump local count immediately
+            // Optimistic: bump local count immediately by replacing the item
             if let idx = items.firstIndex(where: { $0.id == id }) {
-                items[idx].votes = (items[idx].votes ?? 0) + 1
+                var updatedItem = items[idx]
+                updatedItem.votes = (updatedItem.votes ?? 0) + 1
+                items[idx] = updatedItem
             }
 
             do {
                 // ✅ Fetch updated count from server
                 let newCount = try await FounderWish.upvote(feedbackId: id)
+                
+                // Update voted state
                 votedIds.insert(id)
                 Self.saveVotedIds(votedIds)
 
-                // ✅ Update item with actual server vote total
+                // ✅ Update item with actual server vote total by replacing it
                 if let idx = items.firstIndex(where: { $0.id == id }) {
-                    items[idx].votes = newCount
+                    var updatedItem = items[idx]
+                    updatedItem.votes = newCount
+                    items[idx] = updatedItem
                 }
             } catch {
-                // Rollback on failure
+                // Rollback on failure by replacing the item
                 if let idx = items.firstIndex(where: { $0.id == id }) {
-                    items[idx].votes = max(0, (items[idx].votes ?? 1) - 1)
+                    var updatedItem = items[idx]
+                    updatedItem.votes = max(0, (updatedItem.votes ?? 1) - 1)
+                    items[idx] = updatedItem
                 }
                 err = error.localizedDescription
             }
 
+            // Remove from voting state
             votingIds.remove(id)
         }
         
@@ -217,6 +205,56 @@ extension FounderWish {
 
         private static func saveVotedIds(_ set: Set<String>) {
             UserDefaults.standard.set(Array(set), forKey: votedKey)
+        }
+    }
+    
+    // MARK: - Feedback Row View (extracted for better performance)
+    
+    private struct FeedbackRowView: View {
+        let item: PublicItem
+        let isVoting: Bool
+        let alreadyVoted: Bool
+        let onVote: (String) -> Void
+        
+        var body: some View {
+            HStack(alignment: .top) {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(item.title).font(.headline)
+                    if let d = item.description, !d.isEmpty {
+                        Text(d)
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                    Text("votes: \(item.votes ?? 0) · status: \(item.status)")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                }
+                Spacer()
+
+                Button {
+                    onVote(item.id)
+                } label: {
+                    VStack(spacing: 3) {
+                        if isVoting {
+                            ProgressView()
+                                .controlSize(.small)
+                                .tint(.white)
+                        } else {
+                            Image(systemName: "arrow.up")
+                                .font(.system(size: 17, weight: .bold))
+                        }
+                        Text("\(item.votes ?? 0)")
+                            .font(.system(size: 14, weight: .bold))
+                    }
+                    .frame(minWidth: 56, minHeight: 56)
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.borderedProminent)
+                .tint(alreadyVoted ? .gray : .blue)
+                .disabled(isVoting || alreadyVoted)
+                .controlSize(.large)
+            }
+            .padding(.vertical, 4)
         }
     }
 }

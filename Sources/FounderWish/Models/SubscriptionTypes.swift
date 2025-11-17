@@ -8,11 +8,9 @@
 import Foundation
 
 public enum SubscriptionTier: String, Sendable {
-    case unknown = "unknown"
     case free = "free"
     case trial = "trial"
     case paid = "paid"
-    case premium = "premium"
 }
 
 public enum BillingCycle: String, Sendable {
