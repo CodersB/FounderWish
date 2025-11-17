@@ -124,23 +124,28 @@ extension FounderWish {
         }
 
         public var body: some View {
-            List {
-                if let err {
-                    Text(err).foregroundStyle(.red)
+            ScrollView {
+                VStack(spacing: 12) {
+                    if let err {
+                        Text(err)
+                            .foregroundStyle(.red)
+                            .padding()
+                    }
+                    
+                    ForEach(items, id: \.id) { item in
+                        FeedbackRowView(
+                            item: item,
+                            isVoting: votingIds.contains(item.id),
+                            alreadyVoted: votedIds.contains(item.id),
+                            onVote: { id in
+                                Task { await upvote(id) }
+                            }
+                        )
+                    }
                 }
-
-                ForEach(items, id: \.id) { item in
-                    FeedbackRowView(
-                        item: item,
-                        isVoting: votingIds.contains(item.id),
-                        alreadyVoted: votedIds.contains(item.id),
-                        onVote: { id in
-                            Task { await upvote(id) }
-                        }
-                    )
-                }
+                .padding(.horizontal)
+                .padding(.vertical, 8)
             }
-            .listStyle(.plain)
             .task {
                 if let mockItems = mockItems {
                     items = mockItems
@@ -148,12 +153,12 @@ extension FounderWish {
                     await load()
                 }
             }
-            .refreshable { 
+            .refreshable {
                 if mockItems == nil {
                     await load()
                 }
             }
-            .navigationTitle("Ideas")
+            .navigationTitle("Feedbacks")
         }
 
         // MARK: - Data
@@ -236,48 +241,49 @@ extension FounderWish {
         let onVote: (String) -> Void
         
         var body: some View {
-            HStack(alignment: .top) {
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(item.title).font(.headline)
+            HStack(alignment: .top, spacing: 12) {
+                VStack(alignment: .leading, spacing: 8) {
+                    Text(item.title)
+                        .font(.headline)
+                        .foregroundStyle(.primary)
+                    
                     if let d = item.description, !d.isEmpty {
                         Text(d)
                             .font(.subheadline)
                             .foregroundStyle(.secondary)
+                            .lineLimit(3)
                     }
-                    Text("votes: \(item.votes ?? 0) · status: \(item.status)")
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
                 }
+                
                 Spacer()
-
+                
                 Button {
                     onVote(item.id)
                 } label: {
-                    HStack{
-                        VStack(spacing: 2) {
-                            if isVoting {
-                                ProgressView()
-                                    .controlSize(.small)
-                                //.tint(.white)
-                            } else {
-                                Image(systemName: "arrow.up")
-                                    .font(.headline)
-                            }
-                            
-                            Text("\(item.votes ?? 0)")
-                                .font(.subheadline)
+                    VStack(spacing: 4) {
+                        if isVoting {
+                            ProgressView()
+                                .controlSize(.small)
+                        } else {
+                            Image(systemName: "arrow.up")
+                                .font(.headline)
                         }
+                        
+                        Text("\(item.votes ?? 0)")
+                            .font(.subheadline)
                     }
-                    .frame(maxWidth: 50)
-                    //.contentShape(Rectangle())
+                    .frame(width: 50)
                 }
                 .buttonStyle(.borderedProminent)
-                .buttonBorderShape(.capsule)
                 .tint(alreadyVoted ? .gray : .accentColor)
                 .disabled(isVoting || alreadyVoted)
-                //.controlSize(.regular)
             }
-            .padding(.vertical, 4)
+            .padding()
+            .background(
+                RoundedRectangle(cornerRadius: 12)
+                    .fill(.background)
+                    .shadow(color: .black.opacity(0.1), radius: 4, x: 0, y: 2)
+            )
         }
     }
 }
