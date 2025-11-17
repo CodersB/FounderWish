@@ -4,7 +4,7 @@ A Swift Package Manager library for collecting and managing user feedback in iOS
 
 ## Features
 
-- 📝 **Feedback Forms** - Beautiful SwiftUI forms for collecting feature requests and bug reports
+- 📝 **Feedback Forms** - Simple SwiftUI forms for collecting feature requests and bug reports
 - 💬 **Public Feedback Board** - Display and manage public feedback items with modern card layouts
 - 👍 **Upvoting System** - Let users vote on feedback items
 - 🎨 **Modern UI** - Clean, modern SwiftUI components that match iOS design guidelines
@@ -32,18 +32,44 @@ Or add it via Xcode:
 
 ### 1. Configure FounderWish
 
+You can configure everything at once, or just the board key first and set user information later.
+
+**Option 1: Configure everything at once**
 ```swift
 import FounderWish
 
 // In your AppDelegate or App struct
 FounderWish.configure(
-    secret: "your-secret-key",
+    boardKey: "your-board-key",
     email: "user@example.com",
-    subscription: .paid,
+    paymentStatus: .paid,
     billingCycle: .monthly,
     amount: "$9.99"
 )
 ```
+
+**Option 2: Configure just the board key first**
+```swift
+import FounderWish
+
+// Configure with just the board key
+FounderWish.configure(boardKey: "your-board-key")
+
+// Later, when user info is available, update it:
+FounderWish.set(email: "user@example.com", paymentStatus: .paid)
+```
+
+**Payment Status Options:**
+- `.free` - Free users (default)
+- `.trial` - Trial users
+- `.paid` - Paid users (subscriptions or one-time purchases)
+- `.premium` - Premium tier users
+
+**Billing Cycle Options:**
+- `.weekly` - Weekly subscriptions
+- `.monthly` - Monthly subscriptions
+- `.yearly` - Yearly subscriptions
+- `.lifetime` - One-time purchases / lifetime access
 
 ### 2. Show Feedback Form
 
@@ -128,9 +154,9 @@ struct ExampleApp: App {
     init() {
         // Configure FounderWish
         FounderWish.configure(
-            secret: "your-secret-key",
+            boardKey: "your-board-key",
             email: "test@example.com",
-            subscription: .free
+            paymentStatus: .free
         )
     }
     
@@ -176,21 +202,43 @@ struct ContentView: View {
 
 ### Configuration
 
-- `FounderWish.configure(secret:email:subscription:billingCycle:amount:overrideBaseURL:)` - Configure the SDK
-- `FounderWish.updateUser(email:subscription:billingCycle:amount:)` - Update user information
-- `FounderWish.setEmail(_:)` - Update email only
-- `FounderWish.setSubscription(_:billingCycle:amount:)` - Update subscription only
+- `FounderWish.configure(boardKey:email:paymentStatus:billingCycle:amount:overrideBaseURL:)` - Configure the SDK
+  - Configure everything at once, or just the `boardKey` first
+  - All parameters except `boardKey` are optional
+- `FounderWish.set(email:paymentStatus:billingCycle:amount:)` - Update user information
+  - Update any combination of user info
+  - All parameters are optional - only provide what you want to update
 
-### Feedback
+**Usage Examples:**
 
-- `FounderWish.sendFeedback(title:description:source:category:)` - Send feedback programmatically
-- `FounderWish.fetchPublicItems(limit:)` - Fetch public feedback items
-- `FounderWish.upvote(feedbackId:)` - Upvote a feedback item
+```swift
+// Configure with board key only
+FounderWish.configure(boardKey: "your-board-key")
+
+// Update user email
+FounderWish.set(email: "user@example.com")
+
+// Update payment status for subscription
+FounderWish.set(paymentStatus: .paid, billingCycle: .monthly, amount: "$9.99")
+
+// Update payment status for one-time purchase
+FounderWish.set(paymentStatus: .paid, billingCycle: .lifetime, amount: "$49.99")
+
+// Update everything at once
+FounderWish.set(
+    email: "user@example.com",
+    paymentStatus: .paid,
+    billingCycle: .yearly,
+    amount: "$99.99"
+)
+```
 
 ### Views
 
 - `FounderWish.FeedbackFormView()` - SwiftUI view for submitting feedback
 - `FounderWish.FeedbacksView()` - SwiftUI view for displaying public feedbacks
+
+**Note:** The feedback API functions (`sendFeedback`, `fetchPublicItems`, `upvote`) are internal and used by the views. Use the provided SwiftUI views for the best experience.
 
 ## Requirements
 

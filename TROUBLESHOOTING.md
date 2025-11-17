@@ -44,7 +44,7 @@ import FounderWish
 
 Then use:
 ```swift
-FounderWish.configure(secret: "your-secret")
+FounderWish.configure(boardKey: "your-board-key")
 FounderWish.FeedbackFormView()  // Views are nested
 ```
 
@@ -92,7 +92,7 @@ Check in your app's project settings → General → Deployment Info
    import FounderWish
    
    // Then use:
-   FounderWish.configure(secret: "your-secret")
+   FounderWish.configure(boardKey: "your-board-key")
    ```
 
 ## Still Having Issues?

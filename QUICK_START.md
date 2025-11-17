@@ -9,12 +9,17 @@ import FounderWish
 @main
 struct MyApp: App {
     init() {
-        // Configure FounderWish
+        // Configure FounderWish - you can configure everything at once
+        // or just the boardKey first and set user info later
         FounderWish.configure(
-            secret: "your-secret-key",
+            boardKey: "your-board-key",
             email: "user@example.com",
-            subscription: .free
+            paymentStatus: .free
         )
+        
+        // Or configure just the key first:
+        // FounderWish.configure(boardKey: "your-board-key")
+        // Then later: FounderWish.set(email: "user@example.com", paymentStatus: .paid)
     }
     
     var body: some Scene {

@@ -15,7 +15,7 @@ public enum FounderWishError: Error, LocalizedError, Sendable {
     public var errorDescription: String? {
         switch self {
         case .notConfigured:
-            "FounderWish is not configured. Call FounderWish.configure(secret:) first."
+            "FounderWish is not configured. Call FounderWish.configure(boardKey:) first."
         case .invalidResponse:
             "Invalid response from server."
         case .server(let msg):

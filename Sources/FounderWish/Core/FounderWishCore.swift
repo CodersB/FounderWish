@@ -21,10 +21,6 @@ actor FounderWishCore {
         self.userProfile = userProfile
     }
     
-    func updateUserProfile(_ profile: UserProfile) {
-        self.userProfile = profile
-    }
-    
     func mergeUserProfile(
         email: String?? = nil,
         subscriptionStatus: String?? = nil,
@@ -51,8 +47,6 @@ actor FounderWishCore {
     func getUserProfile() -> UserProfile? {
         return userProfile
     }
-
-    func isConfigured() -> Bool { config != nil }
 
     func currentConfig() throws -> FounderWishConfig {
         guard let c = config else { throw FounderWishError.notConfigured }

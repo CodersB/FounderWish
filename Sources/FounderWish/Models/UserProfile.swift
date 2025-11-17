@@ -7,13 +7,13 @@
 
 import Foundation
 
-public struct UserProfile: Sendable {
-    public let subscriptionStatus: String
-    public let subscriptionExpiresAt: Date?
-    public let email: String?
-    public let customMetadata: [String: String]?
+struct UserProfile: Sendable {
+    let subscriptionStatus: String
+    let subscriptionExpiresAt: Date?
+    let email: String?
+    let customMetadata: [String: String]?
     
-    public init(
+    init(
         subscriptionStatus: String = "unknown",
         subscriptionExpiresAt: Date? = nil,
         email: String? = nil,

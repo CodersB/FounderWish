@@ -7,12 +7,12 @@
 
 import Foundation
 
-public struct FounderWishConfig: Sendable {
-    public let baseURL: URL
-    public let ingestSecret: String
-    public var cachedSlug: String?
+struct FounderWishConfig: Sendable {
+    let baseURL: URL
+    let ingestSecret: String
+    var cachedSlug: String?
 
-    public init(baseURL: URL, ingestSecret: String, cachedSlug: String? = nil) {
+    init(baseURL: URL, ingestSecret: String, cachedSlug: String? = nil) {
         self.baseURL = baseURL
         self.ingestSecret = ingestSecret
         self.cachedSlug = cachedSlug
