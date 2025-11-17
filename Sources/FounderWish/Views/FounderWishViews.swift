@@ -111,8 +111,17 @@ extension FounderWish {
 
         // Persisted "already voted" guard (per-device)
         @State private var votedIds: Set<String> = FeedbacksView.loadVotedIds()
+        
+        private let mockItems: [PublicItem]?
 
-        public init() {}
+        public init() {
+            self.mockItems = nil
+        }
+        
+        // Internal initializer for previews
+        internal init(mockItems: [PublicItem]) {
+            self.mockItems = mockItems
+        }
 
         public var body: some View {
             List {
@@ -132,8 +141,18 @@ extension FounderWish {
                 }
             }
             .listStyle(.plain)
-            .task { await load() }
-            .refreshable { await load() }
+            .task {
+                if let mockItems = mockItems {
+                    items = mockItems
+                } else {
+                    await load()
+                }
+            }
+            .refreshable { 
+                if mockItems == nil {
+                    await load()
+                }
+            }
             .navigationTitle("Ideas")
         }
 
@@ -234,25 +253,29 @@ extension FounderWish {
                 Button {
                     onVote(item.id)
                 } label: {
-                    VStack(spacing: 3) {
-                        if isVoting {
-                            ProgressView()
-                                .controlSize(.small)
-                                .tint(.white)
-                        } else {
-                            Image(systemName: "arrow.up")
-                                .font(.system(size: 17, weight: .bold))
+                    HStack{
+                        VStack(spacing: 2) {
+                            if isVoting {
+                                ProgressView()
+                                    .controlSize(.small)
+                                //.tint(.white)
+                            } else {
+                                Image(systemName: "arrow.up")
+                                    .font(.headline)
+                            }
+                            
+                            Text("\(item.votes ?? 0)")
+                                .font(.subheadline)
                         }
-                        Text("\(item.votes ?? 0)")
-                            .font(.system(size: 14, weight: .bold))
                     }
-                    .frame(minWidth: 56, minHeight: 56)
-                    .contentShape(Rectangle())
+                    .frame(maxWidth: 50)
+                    //.contentShape(Rectangle())
                 }
                 .buttonStyle(.borderedProminent)
-                .tint(alreadyVoted ? .gray : .blue)
+                .buttonBorderShape(.capsule)
+                .tint(alreadyVoted ? .gray : .accentColor)
                 .disabled(isVoting || alreadyVoted)
-                .controlSize(.large)
+                //.controlSize(.regular)
             }
             .padding(.vertical, 4)
         }
@@ -270,7 +293,68 @@ struct FeedbackFormView_Previews: PreviewProvider {
 @available(iOS 15.0, *)
 struct FeedbacksView_Previews: PreviewProvider {
     static var previews: some View {
-        FounderWish.FeedbacksView()
+        NavigationView {
+            FounderWish.FeedbacksView(mockItems: mockFeedbackItems)
+        }
+    }
+    
+    static var mockFeedbackItems: [PublicItem] {
+        [
+            PublicItem(
+                id: "1",
+                title: "Add dark mode support",
+                description: "It would be great to have a dark mode option for better visibility at night.",
+                status: "open",
+                source: "ios",
+                created_at: "2024-01-15T10:30:00Z",
+                votes: 42
+            ),
+            PublicItem(
+                id: "2",
+                title: "Improve search functionality",
+                description: "The search feature could be more intuitive and faster.",
+                status: "in_progress",
+                source: "ios",
+                created_at: "2024-01-14T14:20:00Z",
+                votes: 28
+            ),
+            PublicItem(
+                id: "3",
+                title: "Add export to PDF",
+                description: nil,
+                status: "open",
+                source: "ios",
+                created_at: "2024-01-13T09:15:00Z",
+                votes: 15
+            ),
+            PublicItem(
+                id: "4",
+                title: "Fix crash when saving large files",
+                description: "The app crashes when trying to save files larger than 100MB. This happens consistently on iPhone 12 Pro.",
+                status: "open",
+                source: "ios",
+                created_at: "2024-01-12T16:45:00Z",
+                votes: 67
+            ),
+            PublicItem(
+                id: "5",
+                title: "Add keyboard shortcuts",
+                description: "Would love to see keyboard shortcuts for common actions to speed up workflow.",
+                status: "planned",
+                source: "ios",
+                created_at: "2024-01-11T11:00:00Z",
+                votes: 33
+            ),
+            PublicItem(
+                id: "6",
+                title: "Sync across devices",
+                description: "It would be amazing if data could sync between iPhone and iPad automatically.",
+                status: "open",
+                source: "ios",
+                created_at: "2024-01-10T08:30:00Z",
+                votes: 89
+            )
+        ]
     }
 }
 #endif
