@@ -29,7 +29,7 @@ final class FounderWishTests: XCTestCase {
         FounderWish.set(email: "newemail@example.com")
         
         // Update payment status
-        FounderWish.set(paymentStatus: .premium, billingCycle: .yearly, amount: "$99.99")
+        FounderWish.set(paymentStatus: .paid, billingCycle: .yearly, amount: "$99.99")
         
         // Updates are async, so we just verify they don't crash
     }
@@ -52,7 +52,6 @@ final class FounderWishTests: XCTestCase {
     func testPaymentStatus() {
         XCTAssertEqual(PaymentStatus.free.rawValue, "free")
         XCTAssertEqual(PaymentStatus.paid.rawValue, "paid")
-        XCTAssertEqual(PaymentStatus.premium.rawValue, "premium")
         XCTAssertEqual(PaymentStatus.trial.rawValue, "trial")
     }
     

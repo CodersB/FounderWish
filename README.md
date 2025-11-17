@@ -63,7 +63,6 @@ FounderWish.set(email: "user@example.com", paymentStatus: .paid)
 - `.free` - Free users (default)
 - `.trial` - Trial users
 - `.paid` - Paid users (subscriptions or one-time purchases)
-- `.premium` - Premium tier users
 
 **Billing Cycle Options:**
 - `.weekly` - Weekly subscriptions

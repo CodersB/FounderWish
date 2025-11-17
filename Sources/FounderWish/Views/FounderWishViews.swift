@@ -12,6 +12,33 @@ extension FounderWish {
     
     // MARK: - Feedback Form View
     
+    /// A SwiftUI view for submitting feedback (feature requests or bug reports) to your app's feedback board.
+    ///
+    /// This view provides a form where users can:
+    /// - Submit feature requests or bug reports
+    /// - Add a title and optional description
+    /// - Choose between "Feature Request" or "Bug Report" categories
+    ///
+    /// **Usage:**
+    /// ```swift
+    /// import SwiftUI
+    /// import FounderWish
+    ///
+    /// struct ContentView: View {
+    ///     @State private var showFeedback = false
+    ///
+    ///     var body: some View {
+    ///         Button("Send Feedback") {
+    ///             showFeedback = true
+    ///         }
+    ///         .sheet(isPresented: $showFeedback) {
+    ///             FounderWish.FeedbackFormView()
+    ///         }
+    ///     }
+    /// }
+    /// ```
+    ///
+    /// Make sure to call `FounderWish.configure(boardKey:)` before using this view.
     public struct FeedbackFormView: View {
         @Environment(\.dismiss) private var dismiss
 
@@ -128,6 +155,29 @@ extension FounderWish {
     
     // MARK: - Feedbacks View
     
+    /// A SwiftUI view that displays a list of public feedback items from your app's feedback board.
+    ///
+    /// This view shows:
+    /// - All public feedback items (feature requests and bug reports)
+    /// - Vote counts for each item
+    /// - Ability to upvote feedback items
+    /// - Pull-to-refresh functionality
+    ///
+    /// **Usage:**
+    /// ```swift
+    /// import SwiftUI
+    /// import FounderWish
+    ///
+    /// struct FeedbacksListView: View {
+    ///     var body: some View {
+    ///         NavigationView {
+    ///             FounderWish.FeedbacksView()
+    ///         }
+    ///     }
+    /// }
+    /// ```
+    ///
+    /// Make sure to call `FounderWish.configure(boardKey:)` before using this view.
     public struct FeedbacksView: View {
         @State private var items: [PublicItem] = []
         @State private var err: String?

@@ -7,12 +7,12 @@
 
 import Foundation
 
-public enum FounderWishError: Error, LocalizedError, Sendable {
+enum FounderWishError: Error, LocalizedError, Sendable {
     case notConfigured
     case invalidResponse
     case server(String)
 
-    public var errorDescription: String? {
+    var errorDescription: String? {
         switch self {
         case .notConfigured:
             "FounderWish is not configured. Call FounderWish.configure(boardKey:) first."

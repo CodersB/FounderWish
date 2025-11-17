@@ -43,8 +43,8 @@ public struct PublicItem: Decodable, Sendable {
     public var votes: Int?
 }
 
-public struct UpvoteResponse: Decodable, Sendable {
-    public let ok: Bool
-    public let votes: Int?
+struct UpvoteResponse: Decodable, Sendable {
+    let ok: Bool
+    let votes: Int?
 }
 

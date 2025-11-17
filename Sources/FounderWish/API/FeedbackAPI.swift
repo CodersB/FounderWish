@@ -96,12 +96,23 @@ enum FeedbackAPI {
         var req = URLRequest(url: url)
         req.httpMethod = "GET"
         let (data, resp) = try await URLSession.shared.data(for: req)
-        guard let http = resp as? HTTPURLResponse, (200..<300).contains(http.statusCode) else {
+        guard let http = resp as? HTTPURLResponse else {
             throw FounderWishError.invalidResponse
+        }
+        
+        guard (200..<300).contains(http.statusCode) else {
+            let msg = String(data: data, encoding: .utf8) ?? "Server returned status \(http.statusCode)"
+            throw FounderWishError.server(msg)
         }
 
         struct Payload: Decodable { let items: [PublicItem] }
-        return try JSONDecoder().decode(Payload.self, from: data).items
+        do {
+            return try JSONDecoder().decode(Payload.self, from: data).items
+        } catch {
+            // If decoding fails, provide more context
+            let jsonString = String(data: data, encoding: .utf8) ?? "Unable to decode response"
+            throw FounderWishError.server("Failed to decode response: \(error.localizedDescription). Response: \(jsonString.prefix(200))")
+        }
     }
 
     @discardableResult

@@ -12,7 +12,6 @@ public enum PaymentStatus: String, Sendable {
     case free = "free"
     case trial = "trial"
     case paid = "paid"
-    case premium = "premium"
 }
 
 public enum BillingCycle: String, Sendable {
