@@ -91,7 +91,8 @@ enum FeedbackAPI {
         let slug = try await FounderWishCore.shared.ensureSlug()
 
         var url = cfg.baseURL.appendingPathComponent("/api/public-feedback")
-        url.append(queryItems: [URLQueryItem(name: "slug", value: slug)])
+        // API expects public_id parameter (slug is the public identifier)
+        url.append(queryItems: [URLQueryItem(name: "public_id", value: slug)])
 
         var req = URLRequest(url: url)
         req.httpMethod = "GET"
