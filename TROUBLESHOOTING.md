@@ -1,20 +1,5 @@
 # Troubleshooting Guide
 
-## Import Statement Issue
-
-### ❌ Wrong Import:
-```swift
-import FoundationWish  // This won't work!
-import founder_wish    // This won't work!
-```
-
-### ✅ Correct Import:
-```swift
-import FounderWish  // Capital F, Capital W
-```
-
-**Important:** The package is now named `FounderWish`, so the import is simply `FounderWish`.
-
 ## Common Issues and Solutions
 
 ### Issue 1: "No such module 'FounderWish'"
@@ -35,39 +20,31 @@ import FounderWish  // Capital F, Capital W
    - If not, add it via File → Add Packages...
 
 2. **Clean build folder:**
-   ```bash
-   # In Xcode: Product → Clean Build Folder (Shift+Cmd+K)
-   # Or from terminal:
-   cd /path/to/your/app
-   rm -rf ~/Library/Developer/Xcode/DerivedData/*
-   ```
+   - In Xcode: Product → Clean Build Folder (Shift+Cmd+K)
+   - Or delete DerivedData: `rm -rf ~/Library/Developer/Xcode/DerivedData/*`
 
 3. **Re-add the package:**
    - Remove the package from your project
    - File → Add Packages...
-   - Click "Add Local..."
-   - Navigate to `/Users/balu/Documents/Development/FounderWish`
-   - Make sure "Add to Project" is selected
+   - Enter the GitHub URL: `https://github.com/CodersB/FounderWish.git`
+   - Select the version you want
    - Click "Add Package"
 
 4. **Verify package builds:**
-   ```bash
-   cd /Users/balu/Documents/Development/FounderWish
-   swift build
-   ```
-   If this fails, there's an issue with the package itself.
+   - Try building your project (Cmd+B)
+   - If it fails, check that you're using the correct import: `import FounderWish`
 
 ### Issue 2: "Cannot find 'FounderWish' in scope"
 
 **Solution:**
 Make sure you've imported the module:
 ```swift
-import FounderWish  // Capital F, Capital W
+import FounderWish
 ```
 
 Then use:
 ```swift
-FounderWish.configure(...)  // Capital F, capital W
+FounderWish.configure(secret: "your-secret")
 FounderWish.FeedbackFormView()  // Views are nested
 ```
 
@@ -88,14 +65,14 @@ Make sure your app's deployment target matches:
 
 Check in your app's project settings → General → Deployment Info
 
-## Step-by-Step: Adding Local Package Correctly
+## Step-by-Step: Adding Package via GitHub
 
 1. **Open your iOS app project in Xcode**
 
 2. **Add the package:**
    - File → Add Packages...
-   - Click "Add Local..." button (bottom left)
-   - Navigate to: `/Users/balu/Documents/Development/FounderWish`
+   - Enter: `https://github.com/CodersB/FounderWish.git`
+   - Select version: "Up to Next Major Version" or specific version
    - Click "Add Package"
 
 3. **Verify it's added:**
@@ -112,40 +89,16 @@ Check in your app's project settings → General → Deployment Info
 
 5. **Use in your code:**
    ```swift
-   import FounderWish  // Correct import
+   import FounderWish
    
    // Then use:
    FounderWish.configure(secret: "your-secret")
    ```
 
-## Quick Test
-
-Create a simple test file to verify the import works:
-
-```swift
-import SwiftUI
-import FounderWish  // This should work
-
-struct TestView: View {
-    var body: some View {
-        Text("Testing")
-            .onAppear {
-                FounderWish.configure(secret: "test")
-            }
-    }
-}
-```
-
-If this compiles, the package is working correctly!
-
 ## Still Having Issues?
 
 1. **Check Xcode version:** Make sure you're using Xcode 14+ (for Swift 6.2 support)
 2. **Check Swift version:** The package requires Swift 6.2
-3. **Verify package structure:** Make sure all files are in `Sources/FounderWish/`
-4. **Try building the package standalone:**
-   ```bash
-   cd /Users/balu/Documents/Development/FounderWish
-   swift build
-   ```
+3. **Reset Package Caches:** File → Packages → Reset Package Caches
+4. **Update Package:** File → Packages → Update to Latest Package Versions
 

@@ -19,7 +19,7 @@ Add the following to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/yourusername/founder-wish.git", from: "1.0.0")
+    .package(url: "https://github.com/CodersB/FounderWish.git", from: "1.0.5")
 ]
 ```
 
@@ -113,9 +113,9 @@ To test the UI components, create a separate iOS app project:
 1. **Create a new iOS App project in Xcode**
 2. **Add the package as a dependency:**
    - File → Add Packages...
-   - Click "Add Local..." 
-   - Select the `FounderWish` package directory
-   - Or use the file path: `/Users/balu/Documents/Development/FounderWish`
+   - Enter: `https://github.com/CodersB/FounderWish.git`
+   - Select the version you want
+   - Click "Add Package"
 
 3. **Example App Code:**
 

@@ -15,10 +15,10 @@ This is the best way to test the SwiftUI views and see how everything works toge
    - Make sure "SwiftUI" is selected
    - Save it in a different location than your package
 
-2. **Add the local package:**
+2. **Add the package:**
    - In your new project, go to File → Add Packages...
-   - Click "Add Local..."
-   - Navigate to `/Users/balu/Documents/Development/FounderWish`
+   - Enter: `https://github.com/CodersB/FounderWish.git`
+   - Select the version you want
    - Click "Add Package"
 
 3. **Use the example code:**

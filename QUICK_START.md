@@ -1,23 +1,10 @@
 # Quick Start Guide
 
-## Correct Import Statement
-
-```swift
-import FounderWish  // ✅ Correct - Capital F, Capital W
-```
-
-**NOT:**
-```swift
-import FoundationWish  // ❌ Wrong!
-import founder_wish    // ❌ Wrong!
-import founder-wish    // ❌ Wrong!
-```
-
 ## Complete Example
 
 ```swift
 import SwiftUI
-import FounderWish  // ← Correct import
+import FounderWish
 
 @main
 struct MyApp: App {
@@ -45,7 +32,7 @@ struct ContentView: View {
             showFeedback = true
         }
         .sheet(isPresented: $showFeedback) {
-            FounderWish.FeedbackFormView()  // ← Use FounderWish (capital F, capital W)
+            FounderWish.FeedbackFormView()
         }
     }
 }
@@ -54,8 +41,8 @@ struct ContentView: View {
 ## Adding the Package in Xcode
 
 1. **File → Add Packages...**
-2. Click **"Add Local..."** button
-3. Navigate to: `/Users/balu/Documents/Development/founder-wish`
+2. Enter: `https://github.com/CodersB/FounderWish.git`
+3. Select version: "Up to Next Major Version" or specific version
 4. Click **"Add Package"**
 5. Make sure it's added to your app target
 
@@ -63,17 +50,12 @@ struct ContentView: View {
 
 If the import works, you should see:
 - Autocomplete when typing `FounderWish.`
-- No red errors under `import founder_wish`
 - The package listed in Project Navigator under "Package Dependencies"
 
 ## Still Not Working?
 
 1. **Clean Build Folder:** Shift+Cmd+K
-2. **Restart Xcode**
-3. **Verify package builds:** 
-   ```bash
-   cd /Users/balu/Documents/Development/founder-wish
-   swift build
-   ```
+2. **Reset Package Caches:** File → Packages → Reset Package Caches
+3. **Restart Xcode**
 4. **Check your app's deployment target:** Must be iOS 15.0+ or macOS 12.0+
 
