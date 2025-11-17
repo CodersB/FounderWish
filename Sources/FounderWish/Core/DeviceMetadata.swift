@@ -21,11 +21,9 @@ func captureDeviceMeta() async -> DeviceMeta {
         ?? "Unknown"
 
     let appVersion = (bundle.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String) ?? "0"
-    let buildNumber = (bundle.object(forInfoDictionaryKey: "CFBundleVersion") as? String) ?? "0"
     let osVersion = "iOS \(UIDevice.current.systemVersion)"
     let deviceModel = await getDeviceModelIdentifier()
     let deviceType = UIDevice.current.userInterfaceIdiom == .pad ? "tablet" : "phone"
-    let locale = Locale.current.identifier
     let language = Locale.current.languageCode ?? "en"
     let timezone = TimeZone.current.identifier
     
@@ -42,11 +40,9 @@ func captureDeviceMeta() async -> DeviceMeta {
     return DeviceMeta(
         app_name: appName,
         app_version: appVersion,
-        build_number: buildNumber,
         os_version: osVersion,
         device_model: deviceModel,
         device_type: deviceType,
-        locale: locale,
         lang: language,
         timezone: timezone,
         screen_w: screenWidth,
@@ -87,11 +83,9 @@ func getDeviceModelIdentifier() async -> String {
 struct DeviceMeta: Codable, Sendable {
     let app_name: String
     let app_version: String
-    let build_number: String
     let os_version: String
     let device_model: String
     let device_type: String
-    let locale: String
     let lang: String
     let timezone: String
     let screen_w: Int

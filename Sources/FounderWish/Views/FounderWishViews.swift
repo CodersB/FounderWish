@@ -47,20 +47,46 @@ extension FounderWish {
                     }
 
                     if let errorText {
-                        Section { Text(errorText).foregroundStyle(.red) }
+                        Section { 
+                            Text(errorText)
+                                .foregroundStyle(.red)
+                                .transition(.opacity.combined(with: .move(edge: .top)))
+                        }
                     }
 
                     if success {
                         Section {
-                            Label("Thank you! Your feedback was sent.", systemImage: "checkmark.circle.fill")
-                                .font(.title3)
+                            HStack {
+                                Spacer()
+                                VStack(spacing: 12) {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .font(.system(size: 50))
+                                        .foregroundStyle(.green)
+                                    
+                                    Text("Thank you!")
+                                        .font(.title2)
+                                        .fontWeight(.semibold)
+                                    
+                                    Text("Your feedback was sent.")
+                                        .font(.subheadline)
+                                        .foregroundStyle(.secondary)
+                                }
+                                Spacer()
+                            }
+                            .padding(.vertical, 20)
+                            .transition(.asymmetric(
+                                insertion: .scale.combined(with: .opacity),
+                                removal: .opacity
+                            ))
                         }
                     }
                 }
+                .animation(.spring(response: 0.5, dampingFraction: 0.7), value: success)
+                .animation(.spring(response: 0.4, dampingFraction: 0.8), value: errorText)
                 .navigationTitle(isBug ? "Bug Report" : "Feature Request")
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
-                        Button("Cancel") { dismiss() }
+                        Button("Cancel", systemImage: "xmark") { dismiss() }
                     }
                     ToolbarItem(placement: .confirmationAction) {
                         if busy {
