@@ -1,0 +1,775 @@
+{
+  "builtTestProducts" : [
+    {
+      "binaryPath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.xctest/Contents/MacOS/FounderWishPackageTests",
+      "packagePath" : "/Users/balu/Documents/Development/FounderWish",
+      "productName" : "FounderWishPackageTests"
+    }
+  ],
+  "copyCommands" : {
+
+  },
+  "explicitTargetDependencyImportCheckingMode" : {
+    "none" : {
+
+    }
+  },
+  "generatedSourceTargetSet" : [
+
+  ],
+  "pluginDescriptions" : [
+
+  ],
+  "swiftCommands" : {
+    "C.FounderWish-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/sources",
+      "importPath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/API/FeedbackAPI.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/DeviceMetadata.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/FounderWishCore.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/URLExtensions.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/UserProfileManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/FounderWish.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FeedbackModels.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FounderWishConfig.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FounderWishError.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/SubscriptionTypes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/UserProfile.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Views/FounderWishViews.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "FounderWish",
+      "moduleOutputPath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules/FounderWish.swiftmodule",
+      "objects" : [
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackAPI.swift.o",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/DeviceMetadata.swift.o",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishCore.swift.o",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/URLExtensions.swift.o",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfileManager.swift.o",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWish.swift.o",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackModels.swift.o",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishConfig.swift.o",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishError.swift.o",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/SubscriptionTypes.swift.o",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfile.swift.o",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishViews.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx12.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/include/FounderWish-Swift.h",
+        "-swift-version",
+        "6",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "founderwish"
+      ],
+      "outputFileMapPath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackAPI.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/DeviceMetadata.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishCore.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/URLExtensions.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfileManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWish.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackModels.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishConfig.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishError.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/SubscriptionTypes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfile.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishViews.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules/FounderWish.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/API/FeedbackAPI.swift",
+        "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/DeviceMetadata.swift",
+        "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/FounderWishCore.swift",
+        "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/URLExtensions.swift",
+        "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/UserProfileManager.swift",
+        "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/FounderWish.swift",
+        "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FeedbackModels.swift",
+        "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FounderWishConfig.swift",
+        "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FounderWishError.swift",
+        "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/SubscriptionTypes.swift",
+        "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/UserProfile.swift",
+        "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Views/FounderWishViews.swift"
+      ],
+      "tempsPath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.FounderWishPackageTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.build/sources",
+      "importPath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.derived/runner.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules/FounderWishTests.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "FounderWishPackageTests",
+      "moduleOutputPath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules/FounderWishPackageTests.swiftmodule",
+      "objects" : [
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.build/runner.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx12.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-emit-objc-header",
+        "-emit-objc-header-path",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.build/include/FounderWishPackageTests-Swift.h",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "founderwish"
+      ],
+      "outputFileMapPath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules/FounderWishPackageTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.derived/runner.swift"
+      ],
+      "tempsPath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.build",
+      "wholeModuleOptimization" : false
+    },
+    "C.FounderWishTests-arm64-apple-macosx26.0-debug.module" : {
+      "executable" : "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "fileList" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/sources",
+      "importPath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules",
+      "inputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Tests/FounderWishTests/founder_wishTests.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules/FounderWish.swiftmodule"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/sources"
+        }
+      ],
+      "isLibrary" : true,
+      "moduleName" : "FounderWishTests",
+      "moduleOutputPath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules/FounderWishTests.swiftmodule",
+      "objects" : [
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/founder_wishTests.swift.o"
+      ],
+      "otherArguments" : [
+        "-target",
+        "arm64-apple-macosx12.0",
+        "-incremental",
+        "-enable-batch-mode",
+        "-serialize-diagnostics",
+        "-index-store-path",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/index/store",
+        "-Onone",
+        "-enable-testing",
+        "-Xfrontend",
+        "-enable-cross-import-overlays",
+        "-j14",
+        "-DSWIFT_PACKAGE",
+        "-DDEBUG",
+        "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+        "-module-cache-path",
+        "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/ModuleCache",
+        "-parseable-output",
+        "-parse-as-library",
+        "-swift-version",
+        "6",
+        "-I",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-L",
+        "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+        "-plugin-path",
+        "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+        "-sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-g",
+        "-Xcc",
+        "-isysroot",
+        "-Xcc",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+        "-Xcc",
+        "-fPIC",
+        "-Xcc",
+        "-g",
+        "-package-name",
+        "founderwish"
+      ],
+      "outputFileMapPath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/output-file-map.json",
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/founder_wishTests.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules/FounderWishTests.swiftmodule"
+        }
+      ],
+      "prepareForIndexing" : false,
+      "sources" : [
+        "/Users/balu/Documents/Development/FounderWish/Tests/FounderWishTests/founder_wishTests.swift"
+      ],
+      "tempsPath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build",
+      "wholeModuleOptimization" : false
+    }
+  },
+  "swiftFrontendCommands" : {
+
+  },
+  "swiftTargetScanArgs" : {
+    "FounderWish" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "FounderWish",
+      "-package-name",
+      "founderwish",
+      "-c",
+      "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/API/FeedbackAPI.swift",
+      "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/DeviceMetadata.swift",
+      "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/FounderWishCore.swift",
+      "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/URLExtensions.swift",
+      "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/UserProfileManager.swift",
+      "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/FounderWish.swift",
+      "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FeedbackModels.swift",
+      "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FounderWishConfig.swift",
+      "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FounderWishError.swift",
+      "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/SubscriptionTypes.swift",
+      "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/UserProfile.swift",
+      "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Views/FounderWishViews.swift",
+      "-I",
+      "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx12.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/include/FounderWish-Swift.h",
+      "-swift-version",
+      "6",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "founderwish",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "FounderWishPackageTests" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "FounderWishPackageTests",
+      "-package-name",
+      "founderwish",
+      "-c",
+      "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.derived/runner.swift",
+      "-I",
+      "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx12.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-emit-objc-header",
+      "-emit-objc-header-path",
+      "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.build/include/FounderWishPackageTests-Swift.h",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "founderwish",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ],
+    "FounderWishTests" : [
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc",
+      "-module-name",
+      "FounderWishTests",
+      "-package-name",
+      "founderwish",
+      "-c",
+      "/Users/balu/Documents/Development/FounderWish/Tests/FounderWishTests/founder_wishTests.swift",
+      "-I",
+      "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/Modules",
+      "-target",
+      "arm64-apple-macosx12.0",
+      "-incremental",
+      "-enable-batch-mode",
+      "-serialize-diagnostics",
+      "-index-store-path",
+      "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/index/store",
+      "-Onone",
+      "-enable-testing",
+      "-Xfrontend",
+      "-enable-cross-import-overlays",
+      "-j14",
+      "-DSWIFT_PACKAGE",
+      "-DDEBUG",
+      "-DSWIFT_MODULE_RESOURCE_BUNDLE_UNAVAILABLE",
+      "-module-cache-path",
+      "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/ModuleCache",
+      "-parseable-output",
+      "-parse-as-library",
+      "-swift-version",
+      "6",
+      "-I",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-L",
+      "/Library/Developer/CommandLineTools/Library/Developer/Frameworks",
+      "-plugin-path",
+      "/Library/Developer/CommandLineTools/usr/lib/swift/host/plugins/testing",
+      "-sdk",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-g",
+      "-Xcc",
+      "-isysroot",
+      "-Xcc",
+      "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
+      "-Xcc",
+      "-fPIC",
+      "-Xcc",
+      "-g",
+      "-package-name",
+      "founderwish",
+      "-driver-use-frontend-path",
+      "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+    ]
+  },
+  "targetDependencyMap" : {
+    "FounderWish" : [
+
+    ],
+    "FounderWishPackageTests" : [
+      "FounderWishTests",
+      "FounderWish"
+    ],
+    "FounderWishTests" : [
+      "FounderWish"
+    ]
+  },
+  "testDiscoveryCommands" : {
+
+  },
+  "testEntryPointCommands" : {
+    "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.derived/runner.swift" : {
+      "inputs" : [
+
+      ],
+      "outputs" : [
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.derived/runner.swift"
+        }
+      ]
+    }
+  },
+  "traitConfiguration" : {
+    "default" : {
+
+    }
+  },
+  "writeCommands" : {
+    "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/API/FeedbackAPI.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/DeviceMetadata.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/FounderWishCore.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/URLExtensions.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/UserProfileManager.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/FounderWish.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FeedbackModels.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FounderWishConfig.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FounderWishError.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/SubscriptionTypes.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/UserProfile.swift"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Views/FounderWishViews.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/sources"
+    },
+    "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.derived/runner.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.build/sources"
+    },
+    "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.product/Objects.LinkFileList" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<link-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/DeviceMetadata.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackAPI.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackModels.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWish.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishConfig.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishCore.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishError.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishViews.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/SubscriptionTypes.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/URLExtensions.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfile.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfileManager.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.build/runner.swift.o"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/founder_wishTests.swift.o"
+        }
+      ],
+      "outputFilePath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishPackageTests.product/Objects.LinkFileList"
+    },
+    "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/sources" : {
+      "alwaysOutOfDate" : false,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<sources-file-list>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Users/balu/Documents/Development/FounderWish/Tests/FounderWishTests/founder_wishTests.swift"
+        }
+      ],
+      "outputFilePath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/sources"
+    },
+    "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt" : {
+      "alwaysOutOfDate" : true,
+      "inputs" : [
+        {
+          "kind" : "virtual",
+          "name" : "<swift-get-version>"
+        },
+        {
+          "kind" : "file",
+          "name" : "/Library/Developer/CommandLineTools/usr/bin/swiftc"
+        }
+      ],
+      "outputFilePath" : "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/swift-version--1AB21518FC5DEDBE.txt"
+    }
+  }
+}

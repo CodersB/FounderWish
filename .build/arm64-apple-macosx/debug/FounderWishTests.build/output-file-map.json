@@ -1,0 +1,12 @@
+{
+  "": {
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/master.swiftdeps"
+  },
+  "/Users/balu/Documents/Development/FounderWish/Tests/FounderWishTests/founder_wishTests.swift": {
+    "dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/founder_wishTests.d",
+    "object": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/founder_wishTests.swift.o",
+    "swiftmodule": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/founder_wishTests~partial.swiftmodule",
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/founder_wishTests.swiftdeps",
+    "diagnostics": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWishTests.build/founder_wishTests.dia"
+  }
+}

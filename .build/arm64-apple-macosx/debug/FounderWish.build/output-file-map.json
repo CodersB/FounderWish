@@ -1,0 +1,89 @@
+{
+  "": {
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/master.swiftdeps"
+  },
+  "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/API/FeedbackAPI.swift": {
+    "dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackAPI.d",
+    "object": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackAPI.swift.o",
+    "swiftmodule": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackAPI~partial.swiftmodule",
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackAPI.swiftdeps",
+    "diagnostics": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackAPI.dia"
+  },
+  "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/DeviceMetadata.swift": {
+    "dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/DeviceMetadata.d",
+    "object": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/DeviceMetadata.swift.o",
+    "swiftmodule": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/DeviceMetadata~partial.swiftmodule",
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/DeviceMetadata.swiftdeps",
+    "diagnostics": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/DeviceMetadata.dia"
+  },
+  "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/FounderWishCore.swift": {
+    "dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishCore.d",
+    "object": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishCore.swift.o",
+    "swiftmodule": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishCore~partial.swiftmodule",
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishCore.swiftdeps",
+    "diagnostics": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishCore.dia"
+  },
+  "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/URLExtensions.swift": {
+    "dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/URLExtensions.d",
+    "object": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/URLExtensions.swift.o",
+    "swiftmodule": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/URLExtensions~partial.swiftmodule",
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/URLExtensions.swiftdeps",
+    "diagnostics": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/URLExtensions.dia"
+  },
+  "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Core/UserProfileManager.swift": {
+    "dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfileManager.d",
+    "object": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfileManager.swift.o",
+    "swiftmodule": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfileManager~partial.swiftmodule",
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfileManager.swiftdeps",
+    "diagnostics": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfileManager.dia"
+  },
+  "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/FounderWish.swift": {
+    "dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWish.d",
+    "object": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWish.swift.o",
+    "swiftmodule": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWish~partial.swiftmodule",
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWish.swiftdeps",
+    "diagnostics": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWish.dia"
+  },
+  "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FeedbackModels.swift": {
+    "dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackModels.d",
+    "object": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackModels.swift.o",
+    "swiftmodule": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackModels~partial.swiftmodule",
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackModels.swiftdeps",
+    "diagnostics": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FeedbackModels.dia"
+  },
+  "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FounderWishConfig.swift": {
+    "dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishConfig.d",
+    "object": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishConfig.swift.o",
+    "swiftmodule": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishConfig~partial.swiftmodule",
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishConfig.swiftdeps",
+    "diagnostics": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishConfig.dia"
+  },
+  "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/FounderWishError.swift": {
+    "dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishError.d",
+    "object": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishError.swift.o",
+    "swiftmodule": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishError~partial.swiftmodule",
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishError.swiftdeps",
+    "diagnostics": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishError.dia"
+  },
+  "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/SubscriptionTypes.swift": {
+    "dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/SubscriptionTypes.d",
+    "object": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/SubscriptionTypes.swift.o",
+    "swiftmodule": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/SubscriptionTypes~partial.swiftmodule",
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/SubscriptionTypes.swiftdeps",
+    "diagnostics": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/SubscriptionTypes.dia"
+  },
+  "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Models/UserProfile.swift": {
+    "dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfile.d",
+    "object": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfile.swift.o",
+    "swiftmodule": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfile~partial.swiftmodule",
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfile.swiftdeps",
+    "diagnostics": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/UserProfile.dia"
+  },
+  "/Users/balu/Documents/Development/FounderWish/Sources/FounderWish/Views/FounderWishViews.swift": {
+    "dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishViews.d",
+    "object": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishViews.swift.o",
+    "swiftmodule": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishViews~partial.swiftmodule",
+    "swift-dependencies": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishViews.swiftdeps",
+    "diagnostics": "/Users/balu/Documents/Development/FounderWish/.build/arm64-apple-macosx/debug/FounderWish.build/FounderWishViews.dia"
+  }
+}
