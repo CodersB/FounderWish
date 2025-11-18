@@ -88,22 +88,12 @@ enum FeedbackAPI {
 
     static func fetchPublicItems(limit: Int = 50) async throws -> [PublicItem] {
         let cfg = try await FounderWishCore.shared.currentConfig()
-        let slug = try await FounderWishCore.shared.ensureSlug()
         
-        // Ensure slug is not empty
-        guard !slug.isEmpty else {
-            throw FounderWishError.server("Slug is empty. Please ensure FounderWish is configured correctly.")
-        }
-
-        var url = cfg.baseURL.appendingPathComponent("/api/public-feedback")
-        // Try both parameter names - some APIs might use slug, others use public_id
-        url.append(queryItems: [
-            URLQueryItem(name: "public_id", value: slug),
-            URLQueryItem(name: "slug", value: slug)
-        ])
-
-        var req = URLRequest(url: url)
+        // Use the ingest_secret header instead of query parameters
+        var req = URLRequest(url: cfg.baseURL.appendingPathComponent("/api/public-feedback"))
         req.httpMethod = "GET"
+        req.addValue(cfg.ingestSecret, forHTTPHeaderField: "x-ingest-secret")
+        
         let (data, resp) = try await URLSession.shared.data(for: req)
         guard let http = resp as? HTTPURLResponse else {
             throw FounderWishError.invalidResponse
@@ -113,12 +103,11 @@ enum FeedbackAPI {
             let msg = String(data: data, encoding: .utf8) ?? "Server returned status \(http.statusCode)"
             throw FounderWishError.server(msg)
         }
-
+        
         struct Payload: Decodable { let items: [PublicItem] }
         do {
             return try JSONDecoder().decode(Payload.self, from: data).items
         } catch {
-            // If decoding fails, provide more context
             let jsonString = String(data: data, encoding: .utf8) ?? "Unable to decode response"
             throw FounderWishError.server("Failed to decode response: \(error.localizedDescription). Response: \(jsonString.prefix(200))")
         }
