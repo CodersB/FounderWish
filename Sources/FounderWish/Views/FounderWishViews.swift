@@ -18,6 +18,11 @@ extension FounderWish {
     /// - Submit feature requests or bug reports
     /// - Add a title and optional description
     /// - Choose between "Feature Request" or "Bug Report" categories
+    /// - Optionally provide email address (if enabled via `askForEmail` parameter)
+    ///
+    /// **Parameters:**
+    /// - `askForEmail`: If `true`, shows an email text field in the form
+    /// - `emailRequired`: If `true` (and `askForEmail` is `true`), email becomes mandatory
     ///
     /// **Usage:**
     /// ```swift
@@ -32,7 +37,10 @@ extension FounderWish {
     ///             showFeedback = true
     ///         }
     ///         .sheet(isPresented: $showFeedback) {
-    ///             FounderWish.FeedbackFormView()
+    ///             FounderWish.FeedbackFormView(
+    ///                 askForEmail: true,
+    ///                 emailRequired: false  // Set to true to make email mandatory
+    ///             )
     ///         }
     ///     }
     /// }
@@ -44,12 +52,19 @@ extension FounderWish {
 
         @State private var title = ""
         @State private var desc = ""
+        @State private var email = ""
         @State private var busy = false
         @State private var errorText: String?
         @State private var success = false
         @State private var isBug = false   // false = feature, true = bug
+        
+        private let askForEmail: Bool
+        private let emailRequired: Bool
 
-        public init() {}
+        public init(askForEmail: Bool = false, emailRequired: Bool = false) {
+            self.askForEmail = askForEmail
+            self.emailRequired = emailRequired
+        }
 
         public var body: some View {
             NavigationView {
@@ -71,6 +86,17 @@ extension FounderWish {
                     Section(header: Text(isBug ? "Describe the issue" : "Details")) {
                         TextEditor(text: $desc)
                             .frame(minHeight: 120)
+                    }
+                    
+                    if askForEmail {
+                        Section(header: Text("Email")) {
+                            TextField("your@email.com", text: $email)
+                                #if os(iOS)
+                                .textInputAutocapitalization(.never)
+                                .keyboardType(.emailAddress)
+                                .autocorrectionDisabled()
+                                #endif
+                        }
                     }
 
                     if let errorText {
@@ -110,6 +136,9 @@ extension FounderWish {
                 }
                 .animation(.spring(response: 0.5, dampingFraction: 0.7), value: success)
                 .animation(.spring(response: 0.4, dampingFraction: 0.8), value: errorText)
+                .task {
+                    await loadSavedEmail()
+                }
                 .navigationTitle(isBug ? "Bug Report" : "Feature Request")
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
@@ -120,26 +149,74 @@ extension FounderWish {
                             ProgressView()
                         } else {
                             Button("Send") { Task { await send() } }
-                                .disabled(title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+                                .disabled(!canSend)
                         }
                     }
                 }
             }
         }
 
+        private func loadSavedEmail() async {
+            guard askForEmail else { return }
+            let userProfile = await FounderWishCore.shared.getUserProfile()
+            if let savedEmail = userProfile?.email, !savedEmail.isEmpty {
+                await MainActor.run {
+                    email = savedEmail
+                }
+            }
+        }
+        
+        private var canSend: Bool {
+            let trimmedTitle = title.trimmingCharacters(in: .whitespacesAndNewlines)
+            if trimmedTitle.isEmpty {
+                return false
+            }
+            
+            if askForEmail && emailRequired {
+                let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
+                return !trimmedEmail.isEmpty && isValidEmail(trimmedEmail)
+            }
+            
+            return true
+        }
+        
+        private func isValidEmail(_ email: String) -> Bool {
+            let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+            let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailRegex)
+            return emailPredicate.evaluate(with: email)
+        }
+        
         private func send() async {
             errorText = nil
             success = false
             busy = true
+            
+            // Validate email if required
+            if askForEmail && emailRequired {
+                let trimmedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
+                if trimmedEmail.isEmpty {
+                    errorText = "Email is required"
+                    busy = false
+                    return
+                }
+                if !isValidEmail(trimmedEmail) {
+                    errorText = "Please enter a valid email address"
+                    busy = false
+                    return
+                }
+            }
+            
             do {
                 let trimmedTitle = title.trimmingCharacters(in: .whitespacesAndNewlines)
                 let trimmedDesc = desc.trimmingCharacters(in: .whitespacesAndNewlines)
+                let trimmedEmail = askForEmail ? email.trimmingCharacters(in: .whitespacesAndNewlines) : nil
                 let category = isBug ? "bug" : "feature"
 
                 try await FounderWish.sendFeedback(
                     title: trimmedTitle,
                     description: trimmedDesc.isEmpty ? nil : trimmedDesc,
-                    category: category
+                    category: category,
+                    email: trimmedEmail?.isEmpty == false ? trimmedEmail : nil
                 )
 
                 success = true
@@ -388,7 +465,8 @@ extension FounderWish {
 @available(iOS 15.0, *)
 struct FeedbackFormView_Previews: PreviewProvider {
     static var previews: some View {
-        FounderWish.FeedbackFormView()
+        FounderWish.FeedbackFormView(askForEmail: true, emailRequired: false)
+            
     }
 }
 
@@ -460,4 +538,8 @@ struct FeedbacksView_Previews: PreviewProvider {
     }
 }
 #endif
+
+
+
+
 

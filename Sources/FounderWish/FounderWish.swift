@@ -129,13 +129,15 @@ public enum FounderWish: Sendable {
         title: String,
         description: String? = nil,
         source: String = "ios",
-        category: String = "feature"
+        category: String = "feature",
+        email: String? = nil
     ) async throws {
         try await FeedbackAPI.sendFeedback(
             title: title,
             description: description,
             source: source,
-            category: category
+            category: category,
+            email: email
         )
     }
 

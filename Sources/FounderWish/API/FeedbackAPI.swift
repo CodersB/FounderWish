@@ -41,7 +41,8 @@ enum FeedbackAPI {
         title: String,
         description: String? = nil,
         source: String = "ios",
-        category: String = "feature"
+        category: String = "feature",
+        email: String? = nil
     ) async throws {
         let cfg = try await FounderWishCore.shared.currentConfig()
         let userProfile = await FounderWishCore.shared.getUserProfile()
@@ -50,6 +51,19 @@ enum FeedbackAPI {
         // ISO8601 formatter
         let iso8601 = ISO8601DateFormatter()
         iso8601.formatOptions = [.withInternetDateTime]
+
+        // Use email from form if provided, otherwise fall back to user profile email
+        let feedbackEmail = email ?? userProfile?.email
+        
+        // Save email to user profile if provided from form
+        if let email = email, !email.isEmpty {
+            await FounderWishCore.shared.mergeUserProfile(
+                email: .some(email),
+                subscriptionStatus: nil,
+                subscriptionExpiresAt: nil,
+                customMetadata: nil
+            )
+        }
 
         let payload = FeedbackPayload(
             title: title,
@@ -69,7 +83,7 @@ enum FeedbackAPI {
             subscription_status: userProfile?.subscriptionStatus,
             subscription_expires_at: userProfile?.subscriptionExpiresAt.map { iso8601.string(from: $0) },
             install_date: iso8601.string(from: m.install_date),
-            email: userProfile?.email,
+            email: feedbackEmail,
             custom_metadata: userProfile?.customMetadata
         )
 
